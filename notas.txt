@@ -1,0 +1,24 @@
+Directamente en el archivo FXML: Dentro del archivo FXML, puedes especificar el controlador usando la 
+directiva fx:controller, como se muestra a continuación:
+
+<AnchorPane fx:controller="ruta.al.paquete.MainController" xmlns:fx="http://javafx.com/fxml/1" ...>
+    <!-- elementos de la UI aquí -->
+</AnchorPane>
+
+En este caso, ruta.al.paquete.MainController debe ser reemplazado por el nombre completo del paquete y
+la clase del controlador.
+
+---------------------------------------------------------------------------------------------
+
+Para llevar la información de las cuotas calculadas a la vista en tu CuotasController, necesitas hacer 
+lo siguiente:
+
+Vincular las Propiedades de la Tabla: Primero, debes vincular las propiedades de la clase Cuota a las 
+columnas correspondientes en tu TableView. Esto se hace normalmente en el método initialize.
+
+Actualizar el Tipo de TableView y TableColumn: Debes especificar el tipo de objeto que la TableView va 
+a mostrar, que en este caso sería Cuota. También debes especificar el tipo de los valores para cada 
+TableColumn.
+
+Establecer los Datos de la Tabla: Debes establecer los datos en la TableView utilizando un 
+ObservableList<Cuota> que obtendrás del modelo Hipoteca después de calcular las cuotas.

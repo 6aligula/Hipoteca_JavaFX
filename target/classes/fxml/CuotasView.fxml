@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox fx:id="view" alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="cuotasTable" cacheShape="false" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" scaleShape="false" HBox.hgrow="ALWAYS">
+        <columns>
+          <TableColumn fx:id="numeroColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Número" />
+          <TableColumn fx:id="anoColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Año" />
+            <TableColumn fx:id="mesColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Mes" />
+            <TableColumn fx:id="inicialColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Inicial" />
+            <TableColumn fx:id="cuotaMesColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Cuota mes" />
+            <TableColumn fx:id="amortizadoColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Amortizado" />
+            <TableColumn fx:id="interesesColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Intereses" />
+            <TableColumn fx:id="pendienteColumn" maxWidth="1.7976931348623157E308" minWidth="85.0" prefWidth="-1.0" text="Pendiente" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+         </columnResizePolicy>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</HBox>
