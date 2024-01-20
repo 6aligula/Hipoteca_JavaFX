@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import dad.hipotecalc.model.Cuota;
 import dad.hipotecalc.model.Hipoteca;
+import dad.hipotecalc.service.HipotecaService;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -21,15 +22,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 
 public class MainController implements Initializable {
+	private HipotecaService hipotecaService;
+
+	public void setHipotecaService(HipotecaService hipotecaService) {
+        this.hipotecaService = hipotecaService;
+        hipotecaController.setHipotecaService(hipotecaService); // Propaga la instancia al otro controlador
+    }
 
 	// controllers
 
 	private HipotecaController hipotecaController = new HipotecaController();
 	private CuotasController cuotasController = new CuotasController();
-
-	// model
-
-	private Hipoteca hipoteca = new Hipoteca();
 
 	// view
 
@@ -90,15 +93,16 @@ public class MainController implements Initializable {
 	@FXML
 	void onCalcularAction(ActionEvent event) {
 		hipotecaController.getDataUser();
-		hipoteca.calcularCuotas();
+		
+		hipotecaService.getHipoteca().calcularCuotas();
 		// Obtener la lista de cuotas y pasársela al CuotasController
-		ObservableList<Cuota> cuotas = FXCollections.observableArrayList(hipoteca.getCuotas());
+		ObservableList<Cuota> cuotas = FXCollections.observableArrayList(hipotecaService.getHipoteca().getCuotas());
 		cuotasController.setCuotas(cuotas);
 		System.out.println(
 				"Número" + "\t" + "Año" + "\t" + "Mes" + "\t" + "Capital inicial" + "\t" +
 						"Cuota mensual" + "\t" + "Capital amortizado" + "\t" +
 						"Intereses" + "\t" + "Capital pendiente");
-		for (Cuota cuota : hipoteca.getCuotas()) {
+		for (Cuota cuota : hipotecaService.getHipoteca().getCuotas()) {
 			System.out.println(cuota);
 		}
 

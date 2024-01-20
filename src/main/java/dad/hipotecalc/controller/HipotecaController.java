@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import dad.hipotecalc.model.Cuota;
 import dad.hipotecalc.model.Hipoteca;
+import dad.hipotecalc.service.HipotecaService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,8 +18,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 public class HipotecaController implements Initializable {
-	// model
-	private Hipoteca hipoteca = new Hipoteca();
+	// servicio
+	private HipotecaService hipotecaService;
+
+	public void setHipotecaService(HipotecaService hipotecaService) {
+        this.hipotecaService = hipotecaService;
+    }
 
 	@FXML
 	private TextField capitalText;
@@ -76,11 +81,17 @@ public class HipotecaController implements Initializable {
 			System.out.println("capital: " + capital);
 			System.out.println("intereses: " + intereses);
 			System.out.println("plazo: " + plazo);
-			hipoteca.setCliente(cliente);
-			hipoteca.setFecha(fecha);
-			hipoteca.setCapital(capital);
-			hipoteca.setIntereses(intereses);
-			hipoteca.setPlazo(plazo);
+			// hipoteca.setCliente("Chuck Norris");
+			// hipoteca.setFecha(LocalDate.now());		
+			// hipoteca.setCapital(20000);			
+			// hipoteca.setIntereses(3.5);				
+			// hipoteca.setPlazo(5);
+			hipotecaService.getHipoteca().setCliente(cliente);
+			hipotecaService.getHipoteca().setFecha(fecha);
+			hipotecaService.getHipoteca().setCapital(capital);
+			hipotecaService.getHipoteca().setIntereses(intereses);
+			hipotecaService.getHipoteca().setPlazo(plazo);
+			hipotecaService.getHipoteca().calcularCuotas();
 
 		} catch (NumberFormatException e) {
 			System.out.println("Error en el formato de los números ingresados");
