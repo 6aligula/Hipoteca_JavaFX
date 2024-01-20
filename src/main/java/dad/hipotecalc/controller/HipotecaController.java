@@ -81,11 +81,7 @@ public class HipotecaController implements Initializable {
 			System.out.println("capital: " + capital);
 			System.out.println("intereses: " + intereses);
 			System.out.println("plazo: " + plazo);
-			// hipoteca.setCliente("Chuck Norris");
-			// hipoteca.setFecha(LocalDate.now());		
-			// hipoteca.setCapital(20000);			
-			// hipoteca.setIntereses(3.5);				
-			// hipoteca.setPlazo(5);
+
 			hipotecaService.getHipoteca().setCliente(cliente);
 			hipotecaService.getHipoteca().setFecha(fecha);
 			hipotecaService.getHipoteca().setCapital(capital);
