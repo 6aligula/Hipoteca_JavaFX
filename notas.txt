@@ -22,3 +22,6 @@ TableColumn.
 
 Establecer los Datos de la Tabla: Debes establecer los datos en la TableView utilizando un 
 ObservableList<Cuota> que obtendrás del modelo Hipoteca después de calcular las cuotas.
+
+//lanzar la app:
+mvn clean install exec:java
